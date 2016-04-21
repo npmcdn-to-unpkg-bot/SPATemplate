@@ -1,0 +1,28 @@
+.Menu
+  .Mobile
+    z-index: 10000
+    overflow: scroll
+    display: block
+    fixed top 50px left 0px
+    size 100% auto
+    background-color: NavBG
+
+  .Tablet
+    z-index: 10000
+    display: block
+    overflow: hidden
+    fixed top 50px right 0px
+    size auto 100%
+    background-color: NavBG
+    .Close
+      relative()
+      size 100% 50px
+      i
+        align(v)
+        cursor: pointer
+        font-size 30px
+        right 20px
+        color white
+        hover-color black true
+        +below(767px)
+          font-size 25px
