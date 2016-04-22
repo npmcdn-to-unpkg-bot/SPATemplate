@@ -28,19 +28,19 @@ const Contact = ({springSettings,Headline,Subheadline,Paragraph,Address,Email,Mo
                 }}/>
               <div className="SocialMedia">
                 <div className="Cell">
-                  <a href={Mobile.link}>
+                  <a target='_blank' href={Mobile.link}>
                     <i className='btr bt-mobile' />
                     <div className="text" dangerouslySetInnerHTML={{__html:marked(Mobile.text)}}/>
                   </a>
                 </div>
                 <div className="Email">
-                  <a href={Email.link}>
+                  <a target='_blank' href={Email.link}>
                     <i className='btr bt-paper-plane' />
                     <div className="text" dangerouslySetInnerHTML={{__html:marked(Email.text)}}/>
                   </a>
                 </div>
                 <div className="Address">
-                  <a href={Address.link}>
+                  <a target='_blank' href={Address.link}>
                     <i className='btr bt-map' />
                     <div className="text" dangerouslySetInnerHTML={{__html:marked(Address.text)}}/>
                   </a>

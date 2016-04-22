@@ -150,7 +150,11 @@
           "Photo" : {
             "type" : "Image",
             "config" : {
-              "placeholder" : "Property featured image ..."
+              "placeholder" : "Property featured image ...",
+              "constraint" : {
+                "height" : 300,
+                "width" : 450
+              }
             }
           }
         }
