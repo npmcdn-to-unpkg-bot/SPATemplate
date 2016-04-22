@@ -2,6 +2,7 @@ import React from 'react';
 import {Motion, spring, presets} from 'react-motion';
 import MediaQuery from 'react-responsive';
 import {connect} from 'react-redux';
+import {Link} from 'react-scroll';
 
 const Menu = ({open, toggleMenu})=>{
   return (
@@ -27,6 +28,37 @@ const Mobile = ({open, toggleMenu})=>(
           height: `${height}%`,
           opacity: opacity
         }}>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
+                Home
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
+                Properties
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Profile" spy={true} smooth={true} offset={50} duration={1000} >
+                Profile
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       )
     }
@@ -44,6 +76,37 @@ const Tablet = ({open, toggleMenu})=>(
           width: width,
           opacity: opacity
         }}>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
+                Home
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
+                Properties
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Profile" spy={true} smooth={true} offset={50} duration={1000} >
+                Profile
+              </Link>
+            </div>
+          </div>
+          <div className="Border"></div>
+          <div className="Category">
+            <div className="CategoryName">
+              <Link activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       )
     }

@@ -1,30 +1,63 @@
 import React from 'react';
 import MediaQuery from 'react-responsive';
-import {Motion, spring} from 'react-motion';
+import {Motion, spring, presets} from 'react-motion';
+import {Link, Element} from 'react-scroll';
 
-const Jumbotron = ({src, poster, mobilePoster, headline, optional})=>(
+const Jumbotron = ({src, poster, mobilePoster, headline, optional, springSettings})=>(
   <div className='Jumbotron'>
     <MediaQuery maxDeviceWidth={1024}>
-      <Tablet
-          mobilePoster={mobilePoster}
-          headline={headline}
-          optional={optional}
-        />
+      <Motion
+          defaultStyle={{
+            height: 0
+          }}
+          style={{
+            height: spring(480, springSettings)
+          }}
+        >
+          {
+            ({height})=>(
+              <Tablet
+                  mobilePoster={mobilePoster}
+                  headline={headline}
+                  optional={optional}
+                  style={{
+                    height: height
+                  }}
+                />
+            )
+          }
+      </Motion>
     </MediaQuery>
     <MediaQuery minDeviceWidth={1025}>
-      <Desktop
-          src={src}
-          poster={poster}
-          headline={headline}
-          optional={optional}
-        />
+      <Motion
+          defaultStyle={{
+            height: 0
+          }}
+          style={{
+            height: spring(875, springSettings)
+          }}
+        >
+          {
+            ({height})=>(
+              <Desktop
+                  src={src}
+                  poster={poster}
+                  headline={headline}
+                  optional={optional}
+                  style={{
+                    height: height
+                  }}
+                />
+            )
+          }
+      </Motion>
     </MediaQuery>
   </div>
 );
 
-const Tablet = ({mobilePoster, headline, optional})=>{
+const Tablet = ({mobilePoster, headline, optional, style})=>{
   return (
-    <div className="Tablet">
+    <div className="Tablet" style={style}>
       <div
           className="BGPic"
           style={{
@@ -62,7 +95,9 @@ const Tablet = ({mobilePoster, headline, optional})=>{
               }
             </Motion>
             <div className="ScrollDown">
-              <i className='btr bt-angle-down' />
+              <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
+                <i className='btr bt-angle-down' />
+              </Link>
             </div>
           </div>
       </div>
@@ -70,9 +105,9 @@ const Tablet = ({mobilePoster, headline, optional})=>{
   );
 };
 
-const Desktop = ({src, poster, headline, optional})=>{
+const Desktop = ({src, poster, headline, optional, style})=>{
   return (
-    <div className="Desktop">
+    <div className="Desktop" style={style}>
       <video
           className='BGVid'
           preload={true}
@@ -111,7 +146,9 @@ const Desktop = ({src, poster, headline, optional})=>{
           }
         </Motion>
         <div className="ScrollDown">
-          <i className='btr bt-angle-down' />
+          <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={500} >
+            <i className='btr bt-angle-down' />
+          </Link>
         </div>
       </div>
     </div>

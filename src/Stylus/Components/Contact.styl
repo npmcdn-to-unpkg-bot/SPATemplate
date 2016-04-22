@@ -1,0 +1,152 @@
+.Contact
+  relative()
+  size 100% auto
+  overflow: hidden
+  .Wrapper
+    align(v)
+    size 100% auto
+    .Headline
+      center(768px)
+      text-align: center
+      font-family: headFont
+      h2
+        h2()
+        font-size: 33px
+        +below(767px)
+          font-size: 25px
+    .Subheadline
+      center(768px)
+      text-align: center
+      font-family: mainFont
+      h3
+        h3()
+        font-size: 38px
+        font-weight: 500
+        +below(767px)
+          font-size: 25px
+    .Paragraph
+      center(768px)
+      text-align: center
+      padding 0px 40px
+      margin auto
+      h1
+        h1()
+      h2
+        h2()
+      h3
+        h3()
+      h4
+        h4()
+      h5
+        h5()
+      h6
+        h6()
+      p
+        normal()
+        font-size: 14px
+        line-height: 20px
+        letter-spacing: 1px
+    .SocialMedia
+      center(768px)
+      text-align: center
+      +below(767px)
+        margin 30px auto
+      +above(768px)
+        margin 50px auto
+      .Cell
+        +below(767px)
+          column(1)
+        +above(768px)
+          column(1/3)
+        a
+          display: block
+          relative()
+          size 100% 60px
+          &:hover
+          &:focus
+            i
+            .text
+              color black
+          i
+            color grey
+            font-size: 30px
+            padding 15px 0px
+            +below(767px)
+              align(v)
+              left 15px
+              font-size: 35px
+              padding 0px
+
+          .text
+            color grey
+            normal()
+            font-family: otherFont
+            font-size: 19px
+            line-height: 25px
+            +below(767px)
+              align(v)
+              left 75px
+      .Email
+        +below(767px)
+          column(1)
+        +above(768px)
+          column(1/3)
+        a
+          display: block
+          relative()
+          size 100% 60px
+          &:hover
+          &:focus
+            i
+            .text
+              color black
+          i
+            color grey
+            font-size: 30px
+            padding 15px 0px
+            +below(767px)
+              align(v)
+              left 15px
+              font-size: 30px
+              padding 0px
+          .text
+            color grey
+            normal()
+            font-family: otherFont
+            font-size: 19px
+            line-height: 25px
+            +below(767px)
+              align(v)
+              left 75px
+      .Address
+        +below(767px)
+          column(1)
+        +above(768px)
+          column(1/3)
+        a
+          display: block
+          relative()
+          size 100% 100px
+          &:hover
+          &:focus
+            i
+            .text
+              color black
+          i
+            color grey
+            font-size: 30px
+            padding 15px 0px
+            +below(767px)
+              align(v)
+              left 15px
+              font-size: 30px
+              padding 0px
+          .text
+            color grey
+            normal()
+            font-family: otherFont
+            font-size: 19px
+            line-height: 25px
+            +below(767px)
+              align(v)
+              left 75px

@@ -6,6 +6,20 @@
     fixed top 50px left 0px
     size 100% auto
     background-color: NavBG
+    .Category
+      size 100% 50px
+      relative()
+      .CategoryName
+        align(v)
+        left 20px
+        a
+          font-family: headFont
+          cursor: pointer
+          font-size: 20px
+          color white
+          hover-color black true
+    .Border
+      border-bottom: 1px solid black
 
   .Tablet
     z-index: 10000
@@ -26,3 +40,19 @@
         hover-color black true
         +below(767px)
           font-size 25px
+    .Category
+      size 100% 50px
+      relative()
+      .CategoryName
+        align(v)
+        left 20px
+        a
+          font-family: headFont
+          cursor: pointer
+          font-size: 20px
+          color white
+          hover-color black true
+    .Border
+      border-bottom: 1px solid black
+      size 150px 1px
+      margin-left 40px
