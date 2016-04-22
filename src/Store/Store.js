@@ -1,6 +1,7 @@
 import {combineReducers, createStore} from 'redux';
 import {fromJS} from 'immutable';
 
+import Seo from './Components/Seo';
 import Menu from './Components/Menu';
 import Featured from './Components/Featured';
 import Profile from './Components/Profile';
@@ -8,6 +9,7 @@ import Contact from './Components/Contact';
 import Foot from './Components/Foot';
 
 const reducer = combineReducers({
+  Seo: Seo,
   Menu: Menu,
   Featured: Featured,
   Profile: Profile,
@@ -21,6 +23,13 @@ Prismic.api('https://template.prismic.io/api')
   .then((api)=>api.query(Prismic.Predicates.at('my.index.uid', 'index')))
   .then(({results})=>{
     console.log(results[0].data);
+
+    //Seo
+    Store.dispatch({
+      type: 'INIT_SEO',
+      Title: fromJS(results[0].data['index.PageTitle'].value),
+      Description: fromJS(results[0].data['index.PageDescription'].value)
+    });
 
     //Featured
     Store.dispatch({

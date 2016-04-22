@@ -41,6 +41,9 @@ const Mobile = ({open, toggleMenu})=>(
               <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
                 Properties
               </Link>
+              {/*//Featured Properties
+                //MLS Search
+              //Open Homes*/}
             </div>
           </div>
           <div className="Border"></div>

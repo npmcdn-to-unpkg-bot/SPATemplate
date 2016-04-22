@@ -5,67 +5,53 @@ import {connect} from 'react-redux';
 import marked from 'marked';
 
 const Profile = ({poster, name, paragraph, pic, springSettings})=>(
-  <Motion
-      defaultStyle={{
-        height: 0
-      }}
+  <div className="Profile"
       style={{
-        height: spring(875, springSettings)
+        backgroundImage: `url('${poster}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
       }}
     >
-      {
-        ({height})=>(
-          <div className="Profile"
-              style={{
-                height:height,
-                backgroundImage: `url('${poster}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="BGTint">
-                <div className="Wrapper">
-                  <div className="Name">
-                    <h2>{name}</h2>
-                  </div>
-                  <div className="Info">
-                    <MediaQuery maxDeviceWidth={767}>
-                      <div className="Mobile">
-                        <div className="PicWrapper">
-                          <div className="Pic" style={{
-                            backgroundImage: `url('${pic}')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }} />
-                        </div>
-                        <div className="Paragraph"
-                          dangerouslySetInnerHTML={{
-                            __html: marked(paragraph)
-                          }} />
-                      </div>
-                    </MediaQuery>
-                    <MediaQuery minDeviceWidth={768}>
-                      <div className="Tablet">
-                        <div className="PicWrapper">
-                          <div className="Pic" style={{
-                            backgroundImage: `url('${pic}')`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }} />
-                        </div>
-                        <div className="Paragraph"
-                          dangerouslySetInnerHTML={{
-                            __html: marked(paragraph)
-                          }} />
-                      </div>
-                    </MediaQuery>
-                  </div>
-                </div>
-              </div>
+      <div className="BGTint">
+        <div className="Wrapper">
+          <div className="Name">
+            <h2>{name}</h2>
           </div>
-        )
-      }
-  </Motion>
+          <div className="Info">
+            <MediaQuery maxDeviceWidth={767}>
+              <div className="Mobile">
+                <div className="PicWrapper">
+                  <div className="Pic" style={{
+                    backgroundImage: `url('${pic}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }} />
+                </div>
+                <div className="Paragraph"
+                  dangerouslySetInnerHTML={{
+                    __html: marked(paragraph)
+                  }} />
+              </div>
+            </MediaQuery>
+            <MediaQuery minDeviceWidth={768}>
+              <div className="Tablet">
+                <div className="PicWrapper">
+                  <div className="Pic" style={{
+                    backgroundImage: `url('${pic}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }} />
+                </div>
+                <div className="Paragraph"
+                  dangerouslySetInnerHTML={{
+                    __html: marked(paragraph)
+                  }} />
+              </div>
+            </MediaQuery>
+          </div>
+        </div>
+      </div>
+  </div>
 );
 
 const mapStateToProps = ({Profile})=>{

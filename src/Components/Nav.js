@@ -27,7 +27,7 @@ const Nav = ({open, toggleMenu, springSettings})=>(
                     transform: `translate(0px, -${transform}px)`,
                     opacity: opacity
                   }}>
-                    Brand Name
+                    BRAND NAME
                   </a>
                 )
               }

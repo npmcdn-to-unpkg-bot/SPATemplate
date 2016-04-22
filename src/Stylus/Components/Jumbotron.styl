@@ -3,26 +3,39 @@
   clip-path: polygon(100% 0, 100% 93%, 50% 100%, 0 93%, 0 0);
   overflow: hidden
   .Tablet
+    size 100% 875px
+    +below(767px)
+      size 100% 480px
     .BGPic
       display: block
-      size 100% 480px
+      size 100% 875px
+      +below(767px)
+        size 100% 480px
       .BGTint
         background-color: JumbotronTint
         text-align: center
         size 100% 100%
         relative()
         .Headline
-          align(b)
-          // size 100% auto
+          align(v)
+          size 100% auto
           color white
           font-family: headFont
+          padding 0px 50px
           h1
             h1()
-            line-height: 40px
-            font-size 33px
+            line-height: 70px
+            font-size 60px
+            font-weight: 400
+            +below(767px)
+              font-size 35px
+              line-height: 40px
           h3
             h3()
-            font-size 14px
+            font-size 20px
+            +below(767px)
+              font-size 14px
+              line-height: 20px
         .ScrollDown
           absolute bottom 50px
           size 100% auto
@@ -58,6 +71,7 @@
           font-size: 75px
           line-height: 85px
           margin: auto
+          font-weight: 400
         h3
           h3()
           font-size: 20px
@@ -66,6 +80,6 @@
         size 100% auto
         i
           cursor: pointer
-          font-size 30px
+          font-size 40px
           color white
           hover-color red true

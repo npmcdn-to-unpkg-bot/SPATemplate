@@ -2,62 +2,34 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import {Motion, spring, presets} from 'react-motion';
 import {Link, Element} from 'react-scroll';
+import Waypoint from 'react-waypoint';
 
 const Jumbotron = ({src, poster, mobilePoster, headline, optional, springSettings})=>(
   <div className='Jumbotron'>
     <MediaQuery maxDeviceWidth={1024}>
-      <Motion
-          defaultStyle={{
-            height: 0
-          }}
-          style={{
-            height: spring(480, springSettings)
-          }}
-        >
-          {
-            ({height})=>(
-              <Tablet
-                  mobilePoster={mobilePoster}
-                  headline={headline}
-                  optional={optional}
-                  style={{
-                    height: height
-                  }}
-                />
-            )
-          }
-      </Motion>
+      <Tablet
+          mobilePoster={mobilePoster}
+          headline={headline}
+          optional={optional}
+        />
     </MediaQuery>
     <MediaQuery minDeviceWidth={1025}>
-      <Motion
-          defaultStyle={{
-            height: 0
-          }}
+      <Desktop
+          src={src}
+          poster={poster}
+          headline={headline}
+          optional={optional}
           style={{
-            height: spring(875, springSettings)
+            height: 875
           }}
-        >
-          {
-            ({height})=>(
-              <Desktop
-                  src={src}
-                  poster={poster}
-                  headline={headline}
-                  optional={optional}
-                  style={{
-                    height: height
-                  }}
-                />
-            )
-          }
-      </Motion>
+        />
     </MediaQuery>
   </div>
 );
 
-const Tablet = ({mobilePoster, headline, optional, style})=>{
+const Tablet = ({mobilePoster, headline, optional})=>{
   return (
-    <div className="Tablet" style={style}>
+    <div className="Tablet">
       <div
           className="BGPic"
           style={{

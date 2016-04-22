@@ -1,5 +1,8 @@
 .Featured
-  size 100% auto
+  +below(767px)
+    size 100% 700px
+  +above(768px)
+    size 100% 875px
   overflow: hidden
   .Controls
     i
@@ -21,10 +24,11 @@
       .Headline
         relative()
         font-family: headFont
+        color black
         h2
           h2()
-          margin auto
-          font-size: 25px
+          margin 25px auto
+          font-size: 22px
           font-weight: 400
       .Search
         font-family: headFont
@@ -95,6 +99,7 @@
           align(b)
           h2()
           margin auto
+          font-weight: 400
         a
           align(v)
           right 25px
@@ -157,10 +162,15 @@
         relative()
         size 100% 100px
         font-family: headFont
+        margin 0px auto 50px
         h2
           align(b)
           h2()
           margin auto
+          font-weight: 400
+          font-size: 33px
+          color grey
+          letter-spacing: 3px
         a
           align(v)
           right 25px
@@ -210,3 +220,7 @@
             padding 0px 0px
             letter-spacing: 1px
             font-family: headFont
+      .Controls
+        i
+          font-size: 10px
+          margin 20px auto 0px
