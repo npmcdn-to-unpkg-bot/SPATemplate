@@ -4,15 +4,15 @@
   +above(768px)
     size 100% 875px
   overflow: hidden
-  .Controls
-    i
-      cursor: pointer
-      padding 5px
-      color grey
-      font-size 14px
-      hover-color black true
+  .owl-theme .owl-controls
+    margin 25px auto
+    .owl-page
       &.active
-        color black
+        span
+          background red
+      span
+        background black
+        opacity: 1
   .Mobile
     relative()
     size 100% 100%
@@ -47,8 +47,6 @@
       .Properties
         relative()
         size 100% 375px
-        white-space: nowrap
-        overflow: hidden
         .Property
           display: block
           padding 0px
@@ -113,8 +111,6 @@
       .Properties
         relative()
         size 100% 375px
-        white-space: nowrap
-        overflow: hidden
         .Property
           display: block
           padding 0px 12.5px
@@ -184,8 +180,6 @@
       .Properties
         relative()
         size 100% 375px
-        white-space: nowrap
-        overflow: hidden
         .Property
           display: block
           padding 0px 12.5px
