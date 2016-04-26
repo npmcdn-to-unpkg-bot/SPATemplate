@@ -3,10 +3,10 @@ var fallback = require('express-history-api-fallback')
 var morgan = require('morgan');
 var app = express();
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var server_port = process.env.NODE_PORT || 8080;
+var server_ip_address = process.env.NODE_IP || '127.0.0.1';
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', 'public');
 
 app.use(morgan('combined'));
