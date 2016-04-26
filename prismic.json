@@ -21,100 +21,6 @@
       }
     }
   },
-  "Nav" : {
-    "Brand" : {
-      "type" : "Text",
-      "config" : {
-        "placeholder" : "Brand Name ..."
-      }
-    },
-    "Properties Links" : {
-      "fieldset" : "Properties Links",
-      "type" : "Group",
-      "config" : {
-        "repeat" : true,
-        "fields" : {
-          "LinkName" : {
-            "type" : "Text",
-            "config" : {
-              "placeholder" : "Link Name ..."
-            }
-          },
-          "Link" : {
-            "type" : "Link",
-            "fieldset" : "Link",
-            "config" : {
-              "placeholder" : "Link ..."
-            }
-          },
-          "Target" : {
-            "type" : "Select",
-            "fieldset" : "Open in new Tab?",
-            "config" : {
-              "options" : [ "New Tab", "Same Page" ],
-              "placeholder" : "Same Page"
-            }
-          }
-        }
-      }
-    },
-    "About Me Links" : {
-      "fieldset" : "About Me Links",
-      "type" : "Group",
-      "config" : {
-        "repeat" : true,
-        "fields" : {
-          "LinkName" : {
-            "type" : "Text",
-            "config" : {
-              "placeholder" : "Link Name ..."
-            }
-          },
-          "Link" : {
-            "type" : "Link",
-            "fieldset" : "Link",
-            "config" : {
-              "placeholder" : "Link ..."
-            }
-          },
-          "Target" : {
-            "type" : "Select",
-            "fieldset" : "Open in new Tab?",
-            "config" : {
-              "options" : [ "New Tab", "Same Page" ],
-              "placeholder" : "Same Page"
-            }
-          }
-        }
-      }
-    }
-  },
-  "Jumbotron" : {
-    "Heading" : {
-      "type" : "Text",
-      "config" : {
-        "placeholder" : "Heading goes here"
-      }
-    },
-    "SubHeading" : {
-      "type" : "Text",
-      "config" : {
-        "placeholder" : "Heading goes here"
-      }
-    },
-    "slide-show" : {
-      "fieldset" : "Slide Show",
-      "type" : "Group",
-      "config" : {
-        "repeat" : true,
-        "fields" : {
-          "photo" : {
-            "type" : "Image"
-          }
-        }
-      }
-    }
-  },
   "Featured Listings" : {
     "Search MLS" : {
       "type" : "Link",
@@ -150,11 +56,7 @@
           "Photo" : {
             "type" : "Image",
             "config" : {
-              "placeholder" : "Property featured image ...",
-              "constraint" : {
-                "height" : 300,
-                "width" : 450
-              }
+              "placeholder" : "Property featured image ..."
             }
           }
         }
