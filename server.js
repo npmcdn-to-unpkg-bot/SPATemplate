@@ -1,15 +1,22 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+var express = require('express');
+var fallback = require('express-history-api-fallback')
+var morgan = require('morgan');
+var app = express();
 
-new WebpackDevServer(webpack(config), {
-  publicPath: config.output.publicPath,
-  hot: true,
-  historyApiFallback: true
-}).listen(3000, 'localhost', function (err, result) {
-  if (err) {
-    return console.log(err);
-  }
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
-  console.log('Listening at http://localhost:3000/');
+app.set('view engine', 'ejs');
+app.set('views', 'public');
+
+app.use(morgan('combined'));
+app.use(express.static('public'));
+app.use(fallback('index.html', { root: './public' }))
+
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+app.listen(server_port ,server_ip_address, function () {
+  console.log('App running on ' + server_ip_address + ' : ' + server_port);
 });

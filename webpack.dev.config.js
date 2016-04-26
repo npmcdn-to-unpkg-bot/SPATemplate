@@ -5,26 +5,24 @@ var axis = require('axis');
 var rupture = require('rupture');
 
 module.exports = {
+  devtool: 'eval',
   entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
     './src/Client'
   ],
   output: {
-    path: path.join(__dirname, 'public/js'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/js/'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.DedupePlugin()
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
     },{
       test: /\.styl$/,
