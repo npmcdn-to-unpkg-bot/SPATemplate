@@ -17,56 +17,120 @@ const Menu = ({open, toggleMenu})=>{
   );
 };
 
-const Mobile = ({open, toggleMenu})=>(
-  <Motion style={{
-    height: open ? spring(100, presets.gentle) : spring(0, presets.gentle),
-    opacity: open ? spring(1, presets.gentle) : spring(0, presets.gentle)
-  }}>
-    {
-      ({height, opacity})=>(
-        <div className="Mobile" style={{
-          height: `${height}%`,
-          opacity: opacity
-        }}>
-          <div className="Category">
-            <div className="CategoryName">
-              <Link activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
-                Home
-              </Link>
+const Mobile = React.createClass({
+  getInitialState(){
+    return {
+      propertiesMenu: false,
+      profileMenu: false
+    };
+  },
+  togglePropertiesMenu(){
+    this.setState({...this.state,
+      propertiesMenu: !this.state.propertiesMenu
+    });
+  },
+  toggleProfileMenu(){
+    this.setState({...this.state,
+      profileMenu: !this.state.profileMenu
+    });
+  },
+  render(){
+    const {open, toggleMenu} = this.props;
+    const {propertiesMenu, profileMenu} = this.state;
+    return (
+      <Motion style={{
+        height: open ? spring(100, presets.gentle) : spring(0, presets.gentle),
+        opacity: open ? spring(1, presets.gentle) : spring(0, presets.gentle)
+      }}>
+        {
+          ({height, opacity})=>(
+            <div className="Mobile" style={{
+              height: `${height}%`,
+              opacity: opacity
+            }}>
+              <div className="Category">
+                <div className="CategoryName">
+                  <Link onClick={toggleMenu} activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
+                    Home
+                  </Link>
+                </div>
+              </div>
+              <div className="Border"></div>
+              <div className="Category">
+                <div className="CategoryName" onClick={this.togglePropertiesMenu}>
+                  <h5>Properties</h5>
+                  <i className={`btr bt-angle-${propertiesMenu ? 'up': 'down'}`} />
+                </div>
+                <Motion style={{
+                  height: propertiesMenu ? spring(120, presets.gentle) : spring(0, presets.gentle),
+                  opacity: propertiesMenu ? spring(1, presets.gentle) : spring(0, presets.gentle)
+                }}>
+                  {
+                    ({height, opacity})=>(
+                      <div className='SubCategories' style={{
+                        height: `${height}px`,
+                        opacity: opacity
+                      }}>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>Featured Properties</a>
+                        </div>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>MLS Search</a>
+                        </div>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>Open Homes</a>
+                        </div>
+                      </div>
+                    )
+                  }
+                </Motion>
+              </div>
+              <div className="Border"></div>
+              <div className="Category">
+                <div className="CategoryName" onClick={this.toggleProfileMenu}>
+                  <h5>Profile</h5>
+                  <i className={`btr bt-angle-${profileMenu ? 'up': 'down'}`} />
+                </div>
+                <Motion style={{
+                  height: profileMenu ? spring(120, presets.gentle) : spring(0, presets.gentle),
+                  opacity: profileMenu ? spring(1, presets.gentle) : spring(0, presets.gentle)
+                }}>
+                  {
+                    ({height, opacity})=>(
+                      <div className='SubCategories' style={{
+                        height: `${height}px`,
+                        opacity: opacity
+                      }}>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>Featured Properties</a>
+                        </div>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>MLS Search</a>
+                        </div>
+                        <div className='SubCategory'>
+                          <a onClick={toggleMenu} target='_blank' href='//google.com'>Open Homes</a>
+                        </div>
+                      </div>
+                    )
+                  }
+                </Motion>
+              </div>
+              <div className="Border"></div>
+              <div className="Category">
+                <div className="CategoryName">
+                  <Link onClick={toggleMenu} activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
+                    Contact
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="Border"></div>
-          <div className="Category">
-            <div className="CategoryName">
-              <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
-                Properties
-              </Link>
-              {/*//Featured Properties
-                //MLS Search
-              //Open Homes*/}
-            </div>
-          </div>
-          <div className="Border"></div>
-          <div className="Category">
-            <div className="CategoryName">
-              <Link activeClass="active" to="Profile" spy={true} smooth={true} offset={50} duration={1000} >
-                Profile
-              </Link>
-            </div>
-          </div>
-          <div className="Border"></div>
-          <div className="Category">
-            <div className="CategoryName">
-              <Link activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      )
-    }
-  </Motion>
-);
+          )
+        }
+      </Motion>
+    );
+  }
+});
+
 
 const Tablet = ({open, toggleMenu})=>(
   <Motion style={{
@@ -81,7 +145,7 @@ const Tablet = ({open, toggleMenu})=>(
         }}>
           <div className="Category">
             <div className="CategoryName">
-              <Link activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
+              <Link onClick={toggleMenu} activeClass="active" to="Jumbotron" spy={true} smooth={true} offset={50} duration={1000} >
                 Home
               </Link>
             </div>
@@ -89,23 +153,41 @@ const Tablet = ({open, toggleMenu})=>(
           <div className="Border"></div>
           <div className="Category">
             <div className="CategoryName">
-              <Link activeClass="active" to="Featured" spy={true} smooth={true} offset={50} duration={1000} >
-                Properties
-              </Link>
+              <h5>Properties</h5>
+            </div>
+            <div className='SubCategories'>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>Featured Properties</a>
+              </div>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>MLS Search</a>
+              </div>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>Open Homes</a>
+              </div>
             </div>
           </div>
           <div className="Border"></div>
           <div className="Category">
             <div className="CategoryName">
-              <Link activeClass="active" to="Profile" spy={true} smooth={true} offset={50} duration={1000} >
-                Profile
-              </Link>
+              <h5>Profile</h5>
+            </div>
+            <div className='SubCategories'>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>Featured Properties</a>
+              </div>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>MLS Search</a>
+              </div>
+              <div className='SubCategory'>
+                <a onClick={toggleMenu} target='_blank' href='//google.com'>Open Homes</a>
+              </div>
             </div>
           </div>
           <div className="Border"></div>
           <div className="Category">
             <div className="CategoryName">
-              <Link activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
+              <Link onClick={toggleMenu} activeClass="active" to="Contact" spy={true} smooth={true} offset={50} duration={1000} >
                 Contact
               </Link>
             </div>

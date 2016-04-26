@@ -7,17 +7,50 @@
     size 100% auto
     background-color: NavBG
     .Category
-      size 100% 50px
+      size 100% auto
       relative()
       .CategoryName
-        align(v)
-        left 20px
-        a
+        relative()
+        display: block
+        size 100% auto
+        cursor: pointer
+        &:hover
+        &:active
+          h5
+          i
+          a
+            color black
+        h5
+          display: block
           font-family: headFont
-          cursor: pointer
           font-size: 20px
           color white
-          hover-color black true
+          padding 10px 20px
+        i
+          align(v)
+          right 20px
+          color white
+        a
+          display: block
+          font-family: headFont
+          font-size: 20px
+          color white
+          padding 10px 20px
+      .SubCategories
+        display: block
+        size 100% auto
+        overflow: hidden
+        .SubCategory
+          relative()
+          display: block
+          size 100% 40px
+          a
+            display: block
+            size 100% auto
+            align(v)
+            left 40px
+            color white
+            hover-color black true
     .Border
       border-bottom: 1px solid black
 
@@ -41,17 +74,36 @@
         +below(767px)
           font-size 25px
     .Category
-      size 100% 50px
+      size 100% auto
       relative()
       .CategoryName
-        align(v)
-        left 20px
-        a
+        relative()
+        size 100% 50px
+        h5
+          align(v)
+          left 20px
           font-family: headFont
-          cursor: pointer
+          font-size: 20px
+          color white
+        a
+          align(v)
+          left 20px
+          font-family: headFont
           font-size: 20px
           color white
           hover-color black true
+          cursor pointer
+      .SubCategories
+        .SubCategory
+          size 100% 40px
+          relative()
+          a
+            align(v)
+            left 40px
+            cursor: pointer
+            font-size: 16px
+            color white
+            hover-color black true
     .Border
       border-bottom: 1px solid black
       size 150px 1px
