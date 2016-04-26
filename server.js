@@ -1,3 +1,4 @@
+var http = require('http');
 var express = require('express');
 var fallback = require('express-history-api-fallback')
 var morgan = require('morgan');
@@ -17,6 +18,6 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.listen(server_port ,server_ip_address, function () {
+http.createServer(app).listen(server_port ,server_ip_address, function () {
   console.log('App running on ' + server_ip_address + ' : ' + server_port);
 });
