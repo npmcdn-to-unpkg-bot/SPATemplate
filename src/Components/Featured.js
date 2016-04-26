@@ -154,7 +154,6 @@ const Desktop = ({Properties,Search,options})=>{
 
 
 const mapStateToProps = ({Featured})=>{
-  console.log(Featured.toJS());
   return {
     Properties: Featured.get('Properties').toJS(),
     Search: Featured.get('Search')

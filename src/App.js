@@ -37,9 +37,8 @@ const App = ({Title, Description, Properties, Search, springSettings})=>(
                 src={['/media/video.mp4', '/media/video.webm']}
                 poster='/media/poster.jpg'
                 mobilePoster='/media/poster.jpg'
-                headline={`Headline Here Here Here Here`}
-                optional='Optional Blurb Here'
-                springSettings={springSettings}
+                headline={`HEADLINE HERE`}
+                optional={`OPTIONAL BLURB HERE`}
               />
           </Element>
           <Element name="Featured" className="element">
