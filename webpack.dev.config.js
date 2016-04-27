@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var jeet = require('jeet');
 var axis = require('axis');
 var rupture = require('rupture');
+var autoprefixer = require('autoprefixer-stylus');
 
 module.exports = {
   devtool: 'eval',
@@ -30,6 +31,6 @@ module.exports = {
     }]
   },
   stylus: {
-    use: [axis(), jeet(), rupture()]
+    use: [axis(), jeet(), rupture(), autoprefixer()]
   }
 };

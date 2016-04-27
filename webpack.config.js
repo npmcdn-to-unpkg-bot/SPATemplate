@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var jeet = require('jeet');
 var axis = require('axis');
 var rupture = require('rupture');
+var autoprefixer = require('autoprefixer-stylus');
 
 module.exports = {
   entry: [
@@ -18,7 +19,11 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: false
+      }
+    }),
     new webpack.optimize.DedupePlugin()
   ],
   module: {
@@ -32,6 +37,6 @@ module.exports = {
     }]
   },
   stylus: {
-    use: [axis(), jeet(), rupture()]
+    use: [axis(), jeet(), rupture(), autoprefixer()]
   }
 };
